@@ -68,7 +68,6 @@ public class GlobalExceptionHandlingMiddleware(RequestDelegate next, ILogger<Glo
         ArgumentException => StatusCodes.Status400BadRequest,
         KeyNotFoundException => StatusCodes.Status404NotFound,
         InvalidOperationException => StatusCodes.Status409Conflict,
-        NoAvailableSeatsException => StatusCodes.Status409Conflict,
         _ => StatusCodes.Status500InternalServerError
     };
 }

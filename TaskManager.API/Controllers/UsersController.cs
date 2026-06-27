@@ -7,7 +7,6 @@ namespace TaskManager.API.Controllers;
 [ApiController]
 public class UsersController(UserService userService) : ControllerBase
 {
-    // GET: api/<UsersController>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<UserDtoInfo>>> Get()
     {
