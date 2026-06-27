@@ -6,7 +6,7 @@ using TaskManager.API.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+Console.WriteLine("CS: " + builder.Configuration["ConnectionStrings:DefaultConnection"]);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
