@@ -24,10 +24,7 @@ public class TaskService(TaskRepository taskRepository)
     public async Task<TaskDtoInfo> UpdateTaskAsync(int id, TaskDtoUpdate taskDtoUpdate)
     {
         var existingTask = await taskRepository.GetTaskByIdAsync(id);
-        existingTask.Title = taskDtoUpdate.Title ?? existingTask.Title;
-        existingTask.Description = taskDtoUpdate.Description ?? existingTask.Description;
-        existingTask.Priority = taskDtoUpdate.Priority ?? existingTask.Priority;
-        existingTask.Status = taskDtoUpdate.Status ?? existingTask.Status;
+        existingTask.Update(taskDtoUpdate);
         var updatedTask = await taskRepository.UpdateTaskAsync(id, existingTask);
         return TaskMapper.ToTaskDtoInfo(updatedTask);
     }
